@@ -7,6 +7,6 @@
     description = "Daniel";
     extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
-    initialPassword = "changeme"; # change with `passwd` after first login
+    initialPassword = "changeme";
   };
 }

@@ -4,7 +4,7 @@ let
   aliases = {
     ll = "ls -la";
     ".." = "cd ..";
-    rebuild = "sudo nixos-rebuild switch --flake .";
+    rebuild = "rebuild() { sudo nixos-rebuild switch --flake .\${1:+#\$1}; }; rebuild";
   };
 in
 {
