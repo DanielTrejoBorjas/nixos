@@ -2,6 +2,8 @@
 
 # System-level account for "daniel".
 {
+  my.shell.zsh.enable = true; # login shell below
+
   users.users.daniel = {
     isNormalUser = true;
     description = "Daniel";

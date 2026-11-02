@@ -2,9 +2,16 @@
 
 # Home Manager config for "daniel".
 {
-  imports = [
-    ../../modules/home
-  ];
+  my = {
+    git.enable = true;
+    editor.enable = true;
+    packages.cli.enable = true;
+    shell = {
+      aliases.enable = true;
+      bash.enable = true;
+      zsh.enable = true;
+    };
+  };
 
   home.username = "daniel";
   home.homeDirectory = "/home/daniel";
