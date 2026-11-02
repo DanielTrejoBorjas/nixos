@@ -1,12 +1,16 @@
 { ... }:
 
 {
-  # `nix` command + flakes (no more nix-shell / nix-env)
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
     trusted-users = [ "root" "@wheel" ];
+    warn-dirty = false;
   };
+
+  # Flake-only: no channels, nixpkgs comes from the flake registry.
+  nix.channel.enable = false;
+
+  nix.optimise.automatic = true;
 
   nix.gc = {
     automatic = true;

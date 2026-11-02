@@ -7,6 +7,9 @@
     settings = {
       init.defaultBranch = "main";
       pull.rebase = true;
+      push.autoSetupRemote = true;
+      rebase.autoStash = true;
+      fetch.prune = true;
     };
   };
 }

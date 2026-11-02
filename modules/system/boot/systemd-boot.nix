@@ -1,10 +1,13 @@
-{ ... }:
+{ config, lib, ... }:
 
+let
+  cfg = config.my.boot;
+in
 {
-  # UEFI only (use a Generation 2 VM in Hyper-V)
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 10;
+  config = lib.mkIf (cfg.loader == "systemd-boot") {
+    boot.loader.systemd-boot = {
+      enable = true;
+      configurationLimit = cfg.generationLimit;
+    };
   };
-  boot.loader.efi.canTouchEfiVariables = true;
 }

@@ -4,7 +4,8 @@
 {
   imports = [
     ./git.nix
-    ./shell.nix
+    ./shell
+    ./editor.nix
     ./packages.nix
   ];
 }

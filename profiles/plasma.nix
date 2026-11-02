@@ -1,11 +1,10 @@
 { ... }:
 
-# Graphical session: SDDM + Plasma 6 + audio + browser.
+# Minimal graphical session: SDDM + Plasma 6 without bundled apps or audio.
+# Pair with profiles/plasma-apps.nix and an audio module (pipewire or pulseaudio).
 {
   imports = [
     ../modules/desktop/sddm.nix
-    ../modules/desktop/plasma.nix
-    ../modules/desktop/audio.nix
-    ../modules/programs/browser.nix
+    ../modules/desktop/plasma
   ];
 }

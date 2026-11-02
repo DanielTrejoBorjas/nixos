@@ -6,8 +6,10 @@
 
     ../../profiles/base.nix
     ../../profiles/plasma.nix
+    ../../profiles/plasma-apps.nix
 
-    ../../modules/virtualization/hyperv.nix
+    ../../modules/audio/pipewire.nix
+    ../../modules/virtualization/guests/hyperv.nix
     ../../modules/services/ssh.nix
   ];
 

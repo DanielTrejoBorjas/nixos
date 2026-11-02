@@ -1,5 +1,5 @@
-# Placeholder: ./sync.sh overwrites this with the output of
-# `nixos-generate-config --show-hardware-config` on the real machine.
+# Placeholder: replace with the output of `nixos-generate-config --show-hardware-config`
+# from the real machine.
 { lib, modulesPath, ... }:
 
 {

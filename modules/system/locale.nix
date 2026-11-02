@@ -1,13 +1,32 @@
-{ ... }:
+{ config, lib, ... }:
 
+let
+  cfg = config.my.locale;
+in
 {
-  time.timeZone = "Europe/Madrid";
-  i18n.defaultLocale = "es_ES.UTF-8";
+  options.my.locale = {
+    timeZone = lib.mkOption {
+      type = lib.types.str;
+      default = "Europe/Madrid";
+    };
 
-  # Spanish keyboard (X11/Wayland + TTY)
-  services.xserver.xkb = {
-    layout = "es";
-    variant = "";
+    language = lib.mkOption {
+      type = lib.types.str;
+      default = "es_ES.UTF-8";
+    };
+
+    keyboardLayout = lib.mkOption {
+      type = lib.types.str;
+      default = "es";
+      description = "XKB layout, used by X11/Wayland and the TTY.";
+    };
   };
-  console.useXkbConfig = true;
+
+  config = {
+    time.timeZone = cfg.timeZone;
+    i18n.defaultLocale = cfg.language;
+
+    services.xserver.xkb.layout = cfg.keyboardLayout;
+    console.useXkbConfig = true;
+  };
 }

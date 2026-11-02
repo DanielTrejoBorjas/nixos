@@ -1,6 +1,21 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  cfg = config.my.kernel;
+
+  packages = {
+    lts = pkgs.linuxPackages;
+    latest = pkgs.linuxPackages_latest;
+    zen = pkgs.linuxPackages_zen;
+    hardened = pkgs.linuxPackages_hardened;
+  };
+in
 {
-  # Default (LTS) kernel. Swap for pkgs.linuxPackages_latest if needed.
-  boot.kernelPackages = pkgs.linuxPackages;
+  options.my.kernel.variant = lib.mkOption {
+    type = lib.types.enum (builtins.attrNames packages);
+    default = "lts";
+    description = "Kernel flavour: default LTS, latest mainline, Zen (desktop-tuned) or hardened.";
+  };
+
+  config.boot.kernelPackages = packages.${cfg.variant};
 }
