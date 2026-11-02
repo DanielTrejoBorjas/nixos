@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   options.my.shell.zsh.enable = lib.mkEnableOption "zsh managed by Home Manager";
@@ -8,6 +8,7 @@
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      historySubstringSearch.enable = true;
       history = {
         size = 10000;
         ignoreDups = true;
@@ -15,5 +16,7 @@
         share = true;
       };
     };
+
+    home.packages = [ pkgs.zsh-completions ];
   };
 }

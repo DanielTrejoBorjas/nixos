@@ -10,6 +10,6 @@
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ]
       ++ lib.optional config.virtualisation.docker.enable "docker";
     shell = pkgs.zsh;
-    initialPassword = "changeme";
+    initialPassword = "nixos";
   };
 }

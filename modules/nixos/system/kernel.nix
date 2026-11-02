@@ -13,7 +13,7 @@ in
 {
   options.my.kernel.variant = lib.mkOption {
     type = lib.types.enum (builtins.attrNames packages);
-    default = "lts";
+    default = "latest";
     description = "Kernel flavour: default LTS, latest mainline, Zen (desktop-tuned) or hardened.";
   };
 
